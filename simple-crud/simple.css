@@ -15,21 +15,69 @@
 #bee:hover {
   transform: translateY(-10px) rotate(360deg) !important;
 }
+
+@keyframes beeShake {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.bee-animation {
+  animation: beeShake 0.5s ease-in-out;
+}
+@keyframes beeRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bee-rotate {
+  animation: beeRotate 0.5s ease-in-out;
+}
+.image-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
 .img-preview {
   max-width: 100%;
   max-height: 200px;
   width: auto;
   height: auto;
   border-radius: 10px;
-  margin-left: 240px;
   display: block;
-}
-
-.image-preview-container {
-  text-align: center;
-  position: relative;
+  margin: 0 auto;
 }
 
 #removeImageBtn {
-  margin-left: 270px;
+  display: block;
+  margin: 10px auto;
+  padding: 10px 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#removeImageBtn:hover {
+  background-color: darkred;
 }

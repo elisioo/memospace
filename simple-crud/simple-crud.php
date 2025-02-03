@@ -64,6 +64,13 @@
             };
             reader.readAsDataURL(file);
         }
+
+        let bee = document.getElementById("bee");
+        bee.classList.add("bee-rotate");
+
+        setTimeout(() => {
+            bee.classList.remove("bee-rotate");
+        }, 500);
     });
 
 
@@ -72,6 +79,14 @@
         document.querySelector(".image-preview-container").style.display = "none";
         document.getElementById("removeImageBtn").style.display = "none";
         document.getElementById("imageInput").value = "";
+
+        let bee = document.getElementById("bee");
+        bee.classList.add("bee-animation");
+
+
+        setTimeout(() => {
+            bee.classList.remove("bee-animation");
+        }, 500);
     });
     </script>
 
