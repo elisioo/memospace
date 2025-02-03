@@ -1,0 +1,35 @@
+.image-button {
+  position: relative;
+  outline: olivedrab solid 1px;
+  padding: 20px;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+#bee {
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+#bee:hover {
+  transform: translateY(-10px) rotate(360deg) !important;
+}
+.img-preview {
+  max-width: 100%;
+  max-height: 200px;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  margin-left: 240px;
+  display: block;
+}
+
+.image-preview-container {
+  text-align: center;
+  position: relative;
+}
+
+#removeImageBtn {
+  margin-left: 270px;
+}
