@@ -24,7 +24,7 @@
                 <div class="row mb-3">
                     <div class="image-button text-center ">
                         <label for="imageInput" class="btn btn-outline-success btn-xl">Add Image</label>
-                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        <input type="file" name="img_dir" accept="image/*" style="display: none;">
                         <div class="image-preview-container " style="display: none;">
                             <img id="previewImage" src="" alt="Uploaded Image" class="mt-3 img-preview text-center"
                                 style="max-width: 100%; height: auto;">
