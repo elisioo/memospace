@@ -1,3 +1,4 @@
+<?php include '../database/datosbase.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,21 +30,22 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row mb-3">
-                <label for="captionform" class="form-label">Caption</label>
-                <input type="text" class="form-control" placeholder="Caption" id="captionform">
-            </div>
-            <div class="row mb-3">
-                <label for="descriptionform" class="form-label">Description</label>
-                <textarea id="descriptionform" class="form-control"
-                    placeholder="Write something about your day..."></textarea>
-            </div>
-            <div class="row mb-3">
-                <a href="views/add_day.php" class="btn btn-warning btn-sm p-3 rounded-5">Add Day</a>
-            </div>
+            <form class="form" action="../handlers/add_scrud_handler.php" method="POST">
+                <div class="row mb-3">
+                    <label>Caption</label>
+                    <input type="text" class="form-control" placeholder="Caption" id="captionform" name="captio">
+                </div>
+                <div class="row mb-3">
+                    <label>Description</label>
+                    <textarea id="descriptionform" class="form-control" placeholder="Write something about your day..."
+                        name="description"></textarea>
+                </div>
+                <div class="row mb-3">
+                    <button class="btn btn-warning btn-sm p-3 rounded-5" type="submit">Add Day</button>
+                </div>
+            </form>
             <div class="row ">
-                <a href="views/add_day.php" class="btn btn-outline-success btn-sm p-3 rounded-5">My Life</a>
+                <a href="uploads.php" class="btn btn-outline-success btn-sm p-3 rounded-5">My Life</a>
             </div>
         </div>
     </div>
