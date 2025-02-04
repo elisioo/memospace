@@ -13,6 +13,7 @@
 <body>
     <div class="container d-flex justify-content-center align-items-center my-5">
         <div class="col-md-6 ">
+            <p class="display-5 fw-bold text-center text-warning">My Life 🐝</p>
             <?php
           $res = $conn->query("SELECT * FROM simple_crud");
         ?>

@@ -10,8 +10,8 @@
       $caption = $_POST['caption'];
       $description = $_POST['description'];
 
-      $stmt = $conn->prepare("UPDATE todo SET title = ?, description = ? WHERE id = ?");
-      $stmt->bind_param("ssii", $title, $description, $status, $id);
+      $stmt = $conn->prepare("UPDATE simple_crud SET caption = ?, description = ? WHERE id = ?");
+      $stmt->bind_param("ssii", $caption, $description, $upid);
 
       if($stmt->execute())
       {

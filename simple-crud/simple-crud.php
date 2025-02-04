@@ -15,10 +15,12 @@
     <div class="container d-flex justify-content-center align-items-center my-5">
         <div class="col-md-6 ">
             <div class="text-center">
+                
                 <img src="../assets/bee-removebg-preview.png" alt="Bee" width="100" height="100" id="bee" class="bee">
                 <p class="display-5 fw-bold text-warning">A day in my life</p>
             </div>
             <div class="border border-warning p-5 rounded-2 shadow">
+             <form class="form" action="../handlers/add_scrud_handler.php" method="POST" enctype="multipart/form-data">
                 <div class="row mb-3">
                     <div class="image-button text-center ">
                         <label for="imageInput" class="btn btn-outline-success btn-xl">Add Image</label>
@@ -30,15 +32,15 @@
                         </div>
                     </div>
                 </div>
-                <form class="form" action="../handlers/add_scrud_handler.php" method="POST">
+               
                     <div class="row mb-3">
                         <label>Caption</label>
-                        <input type="text" class="form-control" placeholder="Caption" name="caption">
+                        <input type="text" class="form-control" placeholder="Caption" name="caption" required>
                     </div>
                     <div class="row mb-3">
                         <label>Description</label>
                         <textarea class="form-control" placeholder="Write something about your day..."
-                            name="description"></textarea>
+                            name="description" required></textarea>
                     </div>
                     <div class="row mb-3">
                         <button class="btn btn-warning btn-sm p-3 rounded-5" type="submit">Add Day</button>
@@ -47,6 +49,7 @@
                 <div class="row ">
                     <a href="uploads.php" class="btn btn-outline-success btn-sm p-3 rounded-5">My Life</a>
                 </div>
+             </form>
             </div>
         </div>
     </div>

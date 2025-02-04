@@ -21,7 +21,7 @@ try {
   ?>
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- not finish -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,14 +34,14 @@ try {
     <div class="container d-flex justify-content-center mt-5">
         <div class="col-6">
             <div class="row">
-                <p class="display-5 fw-bold">Edit Todo</p>
+                <p class="display-5 fw-bold text-warning">Edit your Day</p>
             </div>
             <div class="row">
                 <form class="form" action="../handlers/update_todo_handler.php" method="POST" required>
-                    <input name="id" value="<?= $todo['id'] ?>" hidden />
+                    <input name="upid" value="<?= $todo['upid'] ?>" hidden />
                     <div class="my-3">
                         <label>Caption</label>
-                        <input class="form-control" type="text" name="caption" value="<?= $todo['title'] ?>" />
+                        <input class="form-control" type="text" name="caption" value="<?= $todo['caption'] ?>" />
                     </div>
                     <div class="my-3">
                         <label>Description</label>
@@ -49,19 +49,11 @@ try {
                             required><?= $todo['description'] ?></textarea>
                     </div>
                     <div class="my-3">
-                        <label>Status</label>
-                        <select class="form-control" id="status" name="status" required>
-                            <option value="0" <?= $todo['status'] == 0 ? 'selected' : '' ?>>Ongoing</option>
-                            <option value="1" <?= $todo['status'] == 1 ? 'selected' : '' ?>>Done</option>
-                        </select>
-                    </div>
-
-                    <div class="my-3">
-                        <button type="submit" class="btn btn-outline-dark">Save Todo</button>
+                        <button type="submit" class="btn btn-outline-success">Save Edit</button>
                     </div>
                 </form>
             </div>
-        </div>
+        </div>  
     </div>
 </body>
 
