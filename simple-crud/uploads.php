@@ -1,4 +1,4 @@
-<?php include '../database/datosbase.php'; ?>
+<?php include '../database/datosbase.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +18,7 @@
         ?>
             <?php if($res->num_rows > 0): ?>
             <?php while($row = $res->fetch_assoc()): ?>
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3 border-warning shadow" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
                         <img src="..." class="img-fluid rounded-start" alt="...">
@@ -27,8 +27,19 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $row['caption']; ?></h5>
                             <p class="card-text"><?= $row['description']; ?></p>
-                            <p class="card-text"><small class="text-body-secondary">Date updated
-                                    <?= $row['time']; ?></small></p>
+                            <div class="row">
+                                <div class="col-6">
+                                    <p class="card-text"><small class="text-body-secondary">Date added
+                                            <?= $row['time']; ?></small></p>
+                                </div>
+                                <div class="col-3">
+                                    <a href="update.php?upid=<?=$row['upid'];?>" class="btn btn-sm btn-warning">Edit</a>
+                                </div>
+                                <div class="col-3">
+                                    <a href="../handlers/delete_scrud_handler.php?upid=<?=$row['upid'];?>"
+                                        class="btn btn-sm btn-danger">Delete</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
