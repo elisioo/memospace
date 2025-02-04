@@ -1,4 +1,7 @@
-<?php include '../database/datosbase.php';?>
+<?php include '../database/datosbase.php';
+$caption="";
+$description="";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,12 +36,12 @@
             <form class="form" action="../handlers/add_scrud_handler.php" method="POST">
                 <div class="row mb-3">
                     <label>Caption</label>
-                    <input type="text" class="form-control" placeholder="Caption" id="captionform" name="captio">
+                    <input type="text" class="form-control" placeholder="Caption" name="caption" <?php echo $caption;?>>
                 </div>
                 <div class="row mb-3">
                     <label>Description</label>
-                    <textarea id="descriptionform" class="form-control" placeholder="Write something about your day..."
-                        name="description"></textarea>
+                    <textarea class="form-control" placeholder="Write something about your day..." name="description"
+                        <?php echo $description;?>></textarea>
                 </div>
                 <div class="row mb-3">
                     <button class="btn btn-warning btn-sm p-3 rounded-5" type="submit">Add Day</button>
