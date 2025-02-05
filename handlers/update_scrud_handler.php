@@ -30,7 +30,7 @@
       }
       
       if ($stmt->execute()) {
-        header("Location: ../simple-crud/uploads.php");
+        header("Location: ../simple-crud-main/uploads.php");
         exit;
       } else {
         echo "Operation failed";
