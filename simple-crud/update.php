@@ -49,8 +49,9 @@ try {
                                 <input type="file" id="imageInput" name="img_dir" accept="image/*"
                                     style="display: none;">
                                 <div class="image-preview-container " style="display: none;">
-                                    <img id="previewImage" src="" alt="Uploaded Image"
-                                        class="mt-3 img-preview text-center" style="max-width: 100%; height: auto;">
+                                    <img id="previewImage" src="../uploads/<?= $beeday['img_dir']; ?>"
+                                        alt="Uploaded Image" class="mt-3 img-preview text-center"
+                                        style="max-width: 100%; height: auto;">
                                     <button id="removeImageBtn" class="btn btn-danger btn-sm mt-2">Remove Image</button>
                                 </div>
                             </div>
@@ -83,15 +84,20 @@ try {
         let removeImageBtn = document.getElementById("removeImageBtn");
         let previewContainer = document.querySelector(".image-preview-container");
 
+        // Ensure the image preview is shown if an image already exists
+        if (previewImage.src && previewImage.src !== window.location.origin + "/") {
+            previewContainer.style.display = "block";
+            removeImageBtn.style.display = "block";
+        }
+
         imageInput.addEventListener("change", function(event) {
             let file = event.target.files[0];
             if (file) {
                 let reader = new FileReader();
                 reader.onload = function(e) {
                     previewImage.src = e.target.result;
-                    previewImage.style.display = "block";
-                    removeImageBtn.style.display = "block";
                     previewContainer.style.display = "block";
+                    removeImageBtn.style.display = "block";
                 };
                 reader.readAsDataURL(file);
             }
