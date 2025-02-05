@@ -10,7 +10,7 @@ try {
     $result = $stmt->get_result();
   
     if ($result && $result->num_rows > 0) {
-      $todo = $result->fetch_assoc();
+      $beeday = $result->fetch_assoc();
     } else {
       die("Todo not found");
     }
@@ -22,6 +22,7 @@ try {
 <!DOCTYPE html>
 <html lang="en">
 <!-- not finish -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,23 +38,41 @@ try {
                 <p class="display-5 fw-bold text-warning">Edit your Day</p>
             </div>
             <div class="row">
-                <form class="form" action="../handlers/update_todo_handler.php" method="POST" required>
-                    <input name="upid" value="<?= $todo['upid'] ?>" hidden />
-                    <div class="my-3">
-                        <label>Caption</label>
-                        <input class="form-control" type="text" name="caption" value="<?= $todo['caption'] ?>" />
-                    </div>
-                    <div class="my-3">
-                        <label>Description</label>
-                        <textarea class="form-control" type="text" name="description"
-                            required><?= $todo['description'] ?></textarea>
-                    </div>
-                    <div class="my-3">
-                        <button type="submit" class="btn btn-outline-success">Save Edit</button>
-                    </div>
-                </form>
+                <div class="border border-warning p-5 rounded-2 shadow">
+                    <form class="form" action="../handlers/update_scrud_handler.php" method="POST"
+                        enctype="multipart/form-data">
+                        <input name="upid" value="<?= $beeday['upid'] ?>" hidden />
+                        <div class="row mb-3">
+                            <div class="image-button text-center ">
+                                <label for="imageInput" class="btn btn-outline-success btn-xl">Add Image</label>
+                                <input type="file" name="img_dir" accept="image/*" style="display: none;">
+                                <div class="image-preview-container " style="display: none;">
+                                    <img id="previewImage" src="" alt="Uploaded Image"
+                                        class="mt-3 img-preview text-center" style="max-width: 100%; height: auto;">
+                                    <button id="removeImageBtn" class="btn btn-danger btn-sm mt-2">Remove Image</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label>Caption</label>
+                            <input type="text" class="form-control" placeholder="Caption" name="caption"
+                                value="<?= $beeday['caption']?>" required>
+                        </div>
+                        <div class="row mb-3">
+                            <label>Description</label>
+                            <textarea class="form-control" placeholder="Write something about your day..."
+                                name="description" required><?= $beeday['description']?></textarea>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <button class="btn btn-outline-warning btn-sm p-3 rounded-2" type="submit">Save
+                                    Edit</button>
+                            </div>
+                        </div>
+                </div>
             </div>
-        </div>  
+        </div>
     </div>
 </body>
 

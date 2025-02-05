@@ -6,12 +6,12 @@
   {
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
-      $id = $_POST['upid'];
+      $upid = $_POST['upid'];
       $caption = $_POST['caption'];
       $description = $_POST['description'];
 
-      $stmt = $conn->prepare("UPDATE simple_crud SET caption = ?, description = ? WHERE id = ?");
-      $stmt->bind_param("ssii", $caption, $description, $upid);
+      $stmt = $conn->prepare("UPDATE simple_crud SET caption = ?, description = ? WHERE upid = ?");
+      $stmt->bind_param("ssi", $caption, $description, $upid);
 
       if($stmt->execute())
       {
@@ -24,7 +24,7 @@
       }
     }
 
-
+ 
   }
   catch(\Exception $e)
   {

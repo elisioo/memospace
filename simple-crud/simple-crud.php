@@ -15,24 +15,24 @@
     <div class="container d-flex justify-content-center align-items-center my-5">
         <div class="col-md-6 ">
             <div class="text-center">
-                
+
                 <img src="../assets/bee-removebg-preview.png" alt="Bee" width="100" height="100" id="bee" class="bee">
                 <p class="display-5 fw-bold text-warning">A day in my life</p>
             </div>
             <div class="border border-warning p-5 rounded-2 shadow">
-             <form class="form" action="../handlers/add_scrud_handler.php" method="POST" enctype="multipart/form-data">
-                <div class="row mb-3">
-                    <div class="image-button text-center ">
-                        <label for="imageInput" class="btn btn-outline-success btn-xl">Add Image</label>
-                        <input type="file" name="img_dir" accept="image/*" style="display: none;">
-                        <div class="image-preview-container " style="display: none;">
-                            <img id="previewImage" src="" alt="Uploaded Image" class="mt-3 img-preview text-center"
-                                style="max-width: 100%; height: auto;">
-                            <button id="removeImageBtn" class="btn btn-danger btn-sm mt-2">Remove Image</button>
+                <form class="form" action="../handlers/add_scrud_handler.php" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="row mb-3">
+                        <div class="image-button text-center ">
+                            <label for="imageInput" class="btn btn-outline-success btn-xl">Add Image</label>
+                            <input type="file" name="img_dir" accept="image/*" style="display: none;">
+                            <div class="image-preview-container " style="display: none;">
+                                <img id="previewImage" src="" alt="Uploaded Image" class="mt-3 img-preview text-center"
+                                    style="max-width: 100%; height: auto;">
+                                <button id="removeImageBtn" class="btn btn-danger btn-sm mt-2">Remove Image</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-               
                     <div class="row mb-3">
                         <label>Caption</label>
                         <input type="text" class="form-control" placeholder="Caption" name="caption" required>
@@ -49,7 +49,7 @@
                 <div class="row ">
                     <a href="uploads.php" class="btn btn-outline-success btn-sm p-3 rounded-5">My Life</a>
                 </div>
-             </form>
+                </form>
             </div>
         </div>
     </div>
