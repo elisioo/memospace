@@ -34,7 +34,7 @@ try {
 
 <body>
     <div class="container d-flex justify-content-center mt-5">
-        <div class="col-6">
+        <div class="col-md-6">
             <div class="row">
                 <p class="display-5 fw-bold text-warning">Edit your Day</p>
             </div>
@@ -68,7 +68,7 @@ try {
                                 name="description" required><?= $beeday['description']?></textarea>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-3">
+                            <div class="col-md-3">
                                 <button class="btn btn-outline-warning btn-sm p-3 rounded-2" type="submit">Save
                                     Edit</button>
                             </div>

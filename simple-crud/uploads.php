@@ -1,5 +1,4 @@
-<?php include '../database/datosbase.php';
-?>
+<?php include '../database/datosbase.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,41 +9,42 @@
     <link rel="stylesheet" href="../statics/css/bootstrap.min.css">
     <link rel="stylesheet" href="../statics/js/bootstrap.bundle.js">
     <link rel="stylesheet" href="simple.css">
+
 </head>
 
 <body>
     <div class="container d-flex justify-content-center align-items-center my-5">
-        <div class="col-md-6 ">
+        <div class="col-md-6">
             <p class="display-5 fw-bold text-center text-warning">My Life 🐝</p>
             <?php
-          $res = $conn->query("SELECT * FROM simple_crud");
-        ?>
+                $res = $conn->query("SELECT * FROM simple_crud");
+            ?>
             <?php if($res->num_rows > 0): ?>
             <?php while($row = $res->fetch_assoc()): ?>
             <div class="card mb-3 border-warning shadow" style="max-width: 540px;">
                 <div class="row g-0">
-                    <div class=" col-md-4">
+                    <div class="col-md-4">
+                        <!-- Make the image fill its parent column -->
                         <img src="../uploads/<?= $row['img_dir']; ?>" class="img-fluid rounded-start"
-                            style="width: 150px; height: 150px; object-fit: cover;" alt="Uploaded Image">
+                            style="width: 100%; height: 150px; object-fit: cover;" alt="Uploaded Image">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title"><?= $row['caption']; ?></h5>
                             <p class="card-text"><?= $row['description']; ?></p>
                             <div class="row">
-                                <div class="col-6 ">
+                                <div class="col-6">
                                     <p class="card-text">
                                         <small class="text-body-secondary">
-                                            <?php 
-                                                 if ($row['is_edited'] == 1) {
+                                            <?php
+                                                    if ($row['is_edited'] == 1) {
                                                         echo "Date Edited " . $row['time'];
-                                                 } else {
+                                                    } else {
                                                         echo "Date Added " . $row['time'];
-                                                 }
-                                            ?>
+                                                    }
+                                                    ?>
                                         </small>
                                     </p>
-
                                 </div>
                                 <div class="col-3">
                                     <a href="update.php?upid=<?=$row['upid'];?>" class="btn btn-sm btn-warning">Edit</a>

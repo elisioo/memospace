@@ -17,21 +17,24 @@
             // Move uploaded file to the desired directory
             if (move_uploaded_file($_FILES["img_dir"]["tmp_name"], $target_file)) {
                 // Update the record and set is_edited to 1
-                $stmt = $conn->prepare("UPDATE simple_crud SET caption=?, description=?, img_dir=?, time=?, is_edited=1 WHERE upid=?");
+                $stmt = $conn->prepare("UPDATE simple_crud SET caption=?, description=?, img_dir=?, time=NOW(), is_edited=1 WHERE upid=?");
                 $stmt->bind_param("ssssi", $caption, $description, $img_name, $Date, $upid); 
 
-                if ($stmt->execute()) {
-                    header("Location: ../simple-crud/uploads.php");
-                    exit;
-                } else {
-                    echo "Operation failed";
-                }
             } else {
                 echo "File upload failed.";
             }
         } else {
-            echo "No file uploaded or upload error.";
-        }
+      
+          $stmt = $conn->prepare("UPDATE simple_crud SET caption=?, description=?, time=NOW(), is_edited=1  WHERE upid=?");
+          $stmt->bind_param("ssi", $caption, $description, $upid);
+      }
+      
+      if ($stmt->execute()) {
+        header("Location: ../simple-crud/uploads.php");
+        exit;
+      } else {
+        echo "Operation failed";
+    }
     }
   }
   catch (\Exception $e) {
