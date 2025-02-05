@@ -53,7 +53,9 @@
             </div>
         </div>
     </div>
-
+    <footer>
+            <a href="simple-crud-main.php"><img src="../assets/plus-removebg-preview.png" alt="" width="35" height="35"></a>
+    </footer>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         let imageInput = document.getElementById("imageInput");

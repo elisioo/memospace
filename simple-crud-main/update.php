@@ -33,12 +33,9 @@ try {
 </head>
 
 <body>
-    <div class="container d-flex justify-content-center mt-5">
+    <div class="container d-flex justify-content-center align-items-center my-5">
         <div class="col-md-6">
-            <div class="row">
                 <p class="display-5 fw-bold text-warning">Edit your Day</p>
-            </div>
-            <div class="row">
                 <div class="border border-warning p-5 rounded-2 shadow">
                     <form class="form" action="../handlers/update_scrud_handler.php" method="POST"
                         enctype="multipart/form-data">
@@ -77,6 +74,10 @@ try {
             </div>
         </div>
     </div>
+    
+    <footer>
+            <a href="simple-crud-main.php"><img src="../assets/plus-removebg-preview.png" alt="" width="35" height="35"></a>
+    </footer>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         let imageInput = document.getElementById("imageInput");

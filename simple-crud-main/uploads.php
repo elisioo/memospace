@@ -24,7 +24,7 @@
             <div class="card mb-3 border-warning shadow" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <!-- Make the image fill its parent column -->
+                        
                         <img src="../uploads/<?= $row['img_dir']; ?>" class="img-fluid rounded-start"
                             style="width: 100%; height: 150px; object-fit: cover;" alt="Uploaded Image">
                     </div>
@@ -46,10 +46,10 @@
                                         </small>
                                     </p>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 d-flex justify-content-end" style="height: 35px;">
                                     <a href="update.php?upid=<?=$row['upid'];?>" class="btn btn-sm btn-warning">Edit</a>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 d-flex justify-content-end px-2" style="height: 35px;">
                                     <a href="../handlers/delete_scrud_handler.php?upid=<?=$row['upid'];?>"
                                         class="btn btn-sm btn-danger">Delete</a>
                                 </div>
@@ -72,6 +72,10 @@
             <?php endif; ?>
         </div>
     </div>
+
+    <footer>
+            <a href="simple-crud-main.php"><img src="../assets/plus-removebg-preview.png" alt="" width="35" height="35"></a>
+    </footer>
 </body>
 
 </html>

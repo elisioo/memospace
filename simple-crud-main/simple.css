@@ -89,3 +89,25 @@
   border-radius: 10px;
   border: 1px solid #ddd;
 }
+
+footer{
+  height: 40px;
+  width: 100%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+footer a img{
+  background: transparent; 
+  transition: transform 0.3s ease;
+}
+footer a img:hover{
+  position: relative; 
+  box-shadow: 0 4px 8px 0 rgb(255, 238, 0), 0 6px 20px 0 rgb(217, 255, 1);
+}
