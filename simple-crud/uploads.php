@@ -22,7 +22,8 @@
             <div class="card mb-3 border-warning shadow" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="..." class="img-fluid rounded-start" alt="...">
+                        <img src="../uploads/<?= $row['img_dir']; ?>" class="img-fluid rounded-start"
+                            alt="Uploaded Image">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

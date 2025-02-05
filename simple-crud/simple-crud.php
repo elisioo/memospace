@@ -8,14 +8,13 @@
     <title>Simple CRUD</title>
     <link rel="stylesheet" href="simple.css">
     <link rel="stylesheet" href="../statics/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../statics/js/bootstrap.bundle.js">
+    <script src="../statics/js/bootstrap.bundle.js"></script>
 </head>
 
 <body>
     <div class="container d-flex justify-content-center align-items-center my-5">
         <div class="col-md-6 ">
             <div class="text-center">
-
                 <img src="../assets/bee-removebg-preview.png" alt="Bee" width="100" height="100" id="bee" class="bee">
                 <p class="display-5 fw-bold text-warning">A day in my life</p>
             </div>
@@ -25,11 +24,13 @@
                     <div class="row mb-3">
                         <div class="image-button text-center ">
                             <label for="imageInput" class="btn btn-outline-success btn-xl">Add Image</label>
-                            <input type="file" name="img_dir" accept="image/*" style="display: none;">
-                            <div class="image-preview-container " style="display: none;">
+                            <input type="file" name="img_dir" id="imageInput" style="display: none;">
+                            <div class="image-preview-container" style="display: none;">
                                 <img id="previewImage" src="" alt="Uploaded Image" class="mt-3 img-preview text-center"
                                     style="max-width: 100%; height: auto;">
-                                <button id="removeImageBtn" class="btn btn-danger btn-sm mt-2">Remove Image</button>
+                                <button id="removeImageBtn" class="btn btn-danger btn-sm mt-2" style="display: none;">
+                                    Remove Image
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -49,53 +50,51 @@
                 <div class="row ">
                     <a href="uploads.php" class="btn btn-outline-success btn-sm p-3 rounded-5">My Life</a>
                 </div>
-                </form>
             </div>
         </div>
     </div>
 
     <script>
-    document.getElementById("imageInput").addEventListener("change", function(event) {
-        let file = event.target.files[0];
-        if (file) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
-
-                let previewImage = document.getElementById("previewImage");
-                previewImage.src = e.target.result;
-                previewImage.style.display = "block";
-                document.getElementById("removeImageBtn").style.display = "block";
-                document.querySelector(".image-preview-container").style.display =
-                    "block";
-            };
-            reader.readAsDataURL(file);
-        }
-
+    document.addEventListener("DOMContentLoaded", function() {
+        let imageInput = document.getElementById("imageInput");
+        let previewImage = document.getElementById("previewImage");
+        let removeImageBtn = document.getElementById("removeImageBtn");
+        let previewContainer = document.querySelector(".image-preview-container");
         let bee = document.getElementById("bee");
-        bee.classList.add("bee-rotate");
 
-        setTimeout(() => {
-            bee.classList.remove("bee-rotate");
-        }, 500);
-    });
+        imageInput.addEventListener("change", function(event) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = "block";
+                    removeImageBtn.style.display = "block";
+                    previewContainer.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
 
+            bee.classList.add("bee-rotate");
+            setTimeout(() => {
+                bee.classList.remove("bee-rotate");
+            }, 500);
+        });
 
-    document.getElementById("removeImageBtn").addEventListener("click", function() {
-        document.getElementById("previewImage").src = "";
-        document.querySelector(".image-preview-container").style.display = "none";
-        document.getElementById("removeImageBtn").style.display = "none";
-        document.getElementById("imageInput").value = "";
+        removeImageBtn.addEventListener("click", function(event) {
+            event.preventDefault();
+            previewImage.src = "";
+            previewContainer.style.display = "none";
+            removeImageBtn.style.display = "none";
+            imageInput.value = "";
 
-        let bee = document.getElementById("bee");
-        bee.classList.add("bee-animation");
-
-
-        setTimeout(() => {
-            bee.classList.remove("bee-animation");
-        }, 500);
+            bee.classList.add("bee-animation");
+            setTimeout(() => {
+                bee.classList.remove("bee-animation");
+            }, 500);
+        });
     });
     </script>
-
 </body>
 
 </html>

@@ -29,6 +29,7 @@ try {
     <title>Update-Bee</title>
     <link rel="stylesheet" href="../statics/css/bootstrap.min.css">
     <link rel="stylesheet" href="../statics/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="simple.css">
 </head>
 
 <body>
@@ -45,7 +46,8 @@ try {
                         <div class="row mb-3">
                             <div class="image-button text-center ">
                                 <label for="imageInput" class="btn btn-outline-success btn-xl">Add Image</label>
-                                <input type="file" name="img_dir" accept="image/*" style="display: none;">
+                                <input type="file" id="imageInput" name="img_dir" accept="image/*"
+                                    style="display: none;">
                                 <div class="image-preview-container " style="display: none;">
                                     <img id="previewImage" src="" alt="Uploaded Image"
                                         class="mt-3 img-preview text-center" style="max-width: 100%; height: auto;">
@@ -74,6 +76,36 @@ try {
             </div>
         </div>
     </div>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let imageInput = document.getElementById("imageInput");
+        let previewImage = document.getElementById("previewImage");
+        let removeImageBtn = document.getElementById("removeImageBtn");
+        let previewContainer = document.querySelector(".image-preview-container");
+
+        imageInput.addEventListener("change", function(event) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    previewImage.src = e.target.result;
+                    previewImage.style.display = "block";
+                    removeImageBtn.style.display = "block";
+                    previewContainer.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        removeImageBtn.addEventListener("click", function(event) {
+            event.preventDefault();
+            previewImage.src = "";
+            previewContainer.style.display = "none";
+            removeImageBtn.style.display = "none";
+            imageInput.value = "";
+        });
+    });
+    </script>
 </body>
 
 </html>
