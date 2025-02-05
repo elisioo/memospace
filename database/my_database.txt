@@ -1,0 +1,21 @@
+
+CREATE DATABASE my_bee;
+
+USE my_bee;
+
+CREATE TABLE `simple_crud` (
+  `upid` int(11) NOT NULL,
+  `caption` varchar(250) NOT NULL,
+  `description` varchar(250) NOT NULL,
+  `img_dir` longblob NOT NULL,
+  `time` date NOT NULL,
+  `is_edited` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+INSERT INTO `simple_crud` (`upid`, `caption`, `description`, `img_dir`, `time`, `is_edited`) VALUES
+(1, 'Hello World', 'I failed my exam.', 0x66696374696f6e616c2d706c616e65742d776974682d636f6c6f757266756c2d6e696768742d736b792d73746172732d6e6562756c61202831292e6a7067, '2025-02-05', 1),
+(2, 'UM', 'University of Mindanao', 0x756d6c6f676f2e6a7067, '2025-02-05', 1),
+(6, 'Adidas', 'Adidas is a fried feet of a chicken.', 0x696d61676573202831292e6a706567, '2025-02-05', 0),
+(7, 'Space', 'Astronaut ', 0x6672656570696b5f5f7468652d7374796c652d69732d63616e6469642d696d6167652d70686f746f6772617068792d776974682d6e61747572616c5f5f35373639392e706e67, '2025-02-05', 0),
+(8, 'Stephen Tatel\'s Ex Girlfriend', 'She is beautiful and handsome as well.', 0x3436323536353232365f323339393036393334373039313239395f3837383732393431313931333337323937325f6e202d20436f70792e6a7067, '2025-02-05', 0),
+(9, 'Dog', 'A man best friend and a companion through hardships. 🐶', 0x706578656c732d70686f746f2d3535313632382e77656270, '2025-02-05', 1);
