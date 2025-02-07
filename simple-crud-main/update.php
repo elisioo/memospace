@@ -35,48 +35,46 @@ try {
 <body>
     <div class="container d-flex justify-content-center align-items-center my-5">
         <div class="col-md-6">
-                <p class="display-5 fw-bold text-warning">Edit your Day</p>
-                <div class="border border-warning p-5 rounded-2 shadow">
-                    <form class="form" action="../handlers/update_scrud_handler.php" method="POST"
-                        enctype="multipart/form-data">
-                        <input name="upid" value="<?= $beeday['upid'] ?>" hidden />
-                        <div class="row mb-3">
-                            <div class="image-button text-center ">
-                                <label for="imageInput" class="btn btn-outline-success btn-xl">Add Image</label>
-                                <input type="file" id="imageInput" name="img_dir" accept="image/*"
-                                    style="display: none;">
-                                <div class="image-preview-container " style="display: none;">
-                                    <img id="previewImage" src="../uploads/<?= $beeday['img_dir']; ?>"
-                                        alt="Uploaded Image" class="mt-3 img-preview text-center"
-                                        style="max-width: 100%; height: auto;">
-                                    <button id="removeImageBtn" class="btn btn-danger btn-sm mt-2">Remove Image</button>
-                                </div>
+            <p class="display-5 fw-bold text-warning">Edit your Day</p>
+            <div class="border border-warning p-5 rounded-2 shadow">
+                <form class="form" action="../handlers/update_scrud_handler.php" method="POST"
+                    enctype="multipart/form-data">
+                    <input name="upid" value="<?= $beeday['upid'] ?>" hidden />
+                    <div class="row mb-3">
+                        <div class="image-button text-center ">
+                            <label for="imageInput" class="btn btn-outline-success btn-xl">Edit Image</label>
+                            <input type="file" id="imageInput" name="img_dir" accept="image/*" style="display: none;">
+                            <div class="image-preview-container " style="display: none;">
+                                <img id="previewImage" src="../uploads/<?= $beeday['img_dir']; ?>" alt="Uploaded Image"
+                                    class="mt-3 img-preview text-center" style="max-width: 100%; height: auto;">
+                                <button id="removeImageBtn" class="btn btn-danger btn-sm mt-2">Remove Image</button>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="row mb-3">
-                            <label>Caption</label>
-                            <input type="text" class="form-control" placeholder="Caption" name="caption"
-                                value="<?= $beeday['caption']?>" required>
+                    <div class="row mb-3">
+                        <label>Caption</label>
+                        <input type="text" class="form-control" placeholder="Caption" name="caption"
+                            value="<?= $beeday['caption']?>" required>
+                    </div>
+                    <div class="row mb-3">
+                        <label>Description</label>
+                        <textarea class="form-control" placeholder="Write something about your day..."
+                            name="description" required><?= $beeday['description']?></textarea>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-warning btn-sm p-3 rounded-2" type="submit">Save
+                                Edit</button>
                         </div>
-                        <div class="row mb-3">
-                            <label>Description</label>
-                            <textarea class="form-control" placeholder="Write something about your day..."
-                                name="description" required><?= $beeday['description']?></textarea>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-3">
-                                <button class="btn btn-outline-warning btn-sm p-3 rounded-2" type="submit">Save
-                                    Edit</button>
-                            </div>
-                        </div>
-                </div>
+                    </div>
             </div>
         </div>
     </div>
-    
+    </div>
+
     <footer>
-            <a href="simple-crud-main.php"><img src="../assets/plus-removebg-preview.png" alt="" width="35" height="35"></a>
+        <a href="simple-crud-main.php"><img src="../assets/plus-removebg-preview.png" alt="" width="35" height="35"></a>
     </footer>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
