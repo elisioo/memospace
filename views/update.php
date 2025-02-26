@@ -1,24 +1,26 @@
-<?php include'../database/datosbase.php';
+<?php
+include '../database/datosbase.php';
+include '../helpers/authenticated.php';
 try {
 
 
     $upid = $_GET['upid'];
-  
+
     $stmt = $conn->prepare("SELECT * FROM simple_crud WHERE upid = ?");
     $stmt->bind_param("i", $upid);
     $stmt->execute();
     $result = $stmt->get_result();
-  
+
     if ($result && $result->num_rows > 0) {
-      $beeday = $result->fetch_assoc();
+        $beeday = $result->fetch_assoc();
     } else {
-      die("Todo not found");
+        die("Todo not found");
     }
     $stmt->close();
-  } catch (\Exception $e) {
+} catch (\Exception $e) {
     echo "Error: " . $e;
-  }
-  ?>
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <!-- not finish -->
@@ -29,10 +31,19 @@ try {
     <title>Update-Bee</title>
     <link rel="stylesheet" href="../statics/css/bootstrap.min.css">
     <link rel="stylesheet" href="../statics/js/bootstrap.bundle.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="simple.css">
 </head>
 
 <body>
+    <div class="col d-flex justify-content-end align-items-center gap-1 position-fixed top-0 start-0 mt-3 ms-3 z-3">
+        <a href="../handlers/logout_handler.php" class="btn btn-danger btn-sm  ">
+            <i class="fa-solid fa-right-from-bracket"></i>&nbsp;Leave
+        </a>
+        <a href="../views/uploads.php" class="btn btn-warning btn-sm  text-white">
+            <i class="fa-solid fa-rotate-left"></i>&nbsp;Return
+        </a>
+    </div>
     <div class="container d-flex justify-content-center align-items-center my-5">
         <div class="col-md-6">
             <p class="display-5 fw-bold text-warning">Edit your Day</p>
@@ -55,12 +66,12 @@ try {
                     <div class="row mb-3">
                         <label>Caption</label>
                         <input type="text" class="form-control" placeholder="Caption" name="caption"
-                            value="<?= $beeday['caption']?>" required>
+                            value="<?= $beeday['caption'] ?>" required>
                     </div>
                     <div class="row mb-3">
                         <label>Description</label>
                         <textarea class="form-control" placeholder="Write something about your day..."
-                            name="description" required><?= $beeday['description']?></textarea>
+                            name="description" required><?= $beeday['description'] ?></textarea>
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-3">

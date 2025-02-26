@@ -11,7 +11,7 @@ try {
   $stmt->bind_param("i", $upid);
 
   if ($stmt->execute()) {
-    header("Location: ../simple-crud-main/uploads.php");
+    header("Location: ../views/uploads.php");
     exit;
   } else {
     echo "operation failed";
