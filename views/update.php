@@ -88,39 +88,39 @@ try {
         <a href="simple-crud-main.php"><img src="../assets/plus-removebg-preview.png" alt="" width="35" height="35"></a>
     </footer>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let imageInput = document.getElementById("imageInput");
-        let previewImage = document.getElementById("previewImage");
-        let removeImageBtn = document.getElementById("removeImageBtn");
-        let previewContainer = document.querySelector(".image-preview-container");
+        document.addEventListener("DOMContentLoaded", function() {
+            let imageInput = document.getElementById("imageInput");
+            let previewImage = document.getElementById("previewImage");
+            let removeImageBtn = document.getElementById("removeImageBtn");
+            let previewContainer = document.querySelector(".image-preview-container");
 
-        // Ensure the image preview is shown if an image already exists
-        if (previewImage.src && previewImage.src !== window.location.origin + "/") {
-            previewContainer.style.display = "block";
-            removeImageBtn.style.display = "block";
-        }
-
-        imageInput.addEventListener("change", function(event) {
-            let file = event.target.files[0];
-            if (file) {
-                let reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewContainer.style.display = "block";
-                    removeImageBtn.style.display = "block";
-                };
-                reader.readAsDataURL(file);
+            // Ensure the image preview is shown if an image already exists
+            if (previewImage.src && previewImage.src !== window.location.origin + "/") {
+                previewContainer.style.display = "block";
+                removeImageBtn.style.display = "block";
             }
-        });
 
-        removeImageBtn.addEventListener("click", function(event) {
-            event.preventDefault();
-            previewImage.src = "";
-            previewContainer.style.display = "none";
-            removeImageBtn.style.display = "none";
-            imageInput.value = "";
+            imageInput.addEventListener("change", function(event) {
+                let file = event.target.files[0];
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                        previewContainer.style.display = "block";
+                        removeImageBtn.style.display = "block";
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            removeImageBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                previewImage.src = "";
+                previewContainer.style.display = "none";
+                removeImageBtn.style.display = "none";
+                imageInput.value = "";
+            });
         });
-    });
     </script>
 </body>
 

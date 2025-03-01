@@ -91,45 +91,45 @@ $row = $res->fetch_assoc();
     </footer>
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let imageInput = document.getElementById("imageInput");
-        let previewImage = document.getElementById("previewImage");
-        let removeImageBtn = document.getElementById("removeImageBtn");
-        let previewContainer = document.querySelector(".image-preview-container");
-        let bee = document.getElementById("bee");
+        document.addEventListener("DOMContentLoaded", function() {
+            let imageInput = document.getElementById("imageInput");
+            let previewImage = document.getElementById("previewImage");
+            let removeImageBtn = document.getElementById("removeImageBtn");
+            let previewContainer = document.querySelector(".image-preview-container");
+            let bee = document.getElementById("bee");
 
-        imageInput.addEventListener("change", function(event) {
-            let file = event.target.files[0];
-            if (file) {
-                let reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewImage.style.display = "block";
-                    removeImageBtn.style.display = "block";
-                    previewContainer.style.display = "block";
-                };
-                reader.readAsDataURL(file);
-            }
+            imageInput.addEventListener("change", function(event) {
+                let file = event.target.files[0];
+                if (file) {
+                    let reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                        previewImage.style.display = "block";
+                        removeImageBtn.style.display = "block";
+                        previewContainer.style.display = "block";
+                    };
+                    reader.readAsDataURL(file);
+                }
 
-            bee.classList.add("bee-rotate");
-            setTimeout(() => {
-                bee.classList.remove("bee-rotate");
-            }, 500);
+                bee.classList.add("bee-rotate");
+                setTimeout(() => {
+                    bee.classList.remove("bee-rotate");
+                }, 500);
+            });
+
+            removeImageBtn.addEventListener("click", function(event) {
+                event.preventDefault();
+                previewImage.src = "";
+                previewContainer.style.display = "none";
+                removeImageBtn.style.display = "none";
+                imageInput.value = "";
+
+                bee.classList.add("bee-animation");
+                setTimeout(() => {
+                    bee.classList.remove("bee-animation");
+                }, 500);
+            });
         });
-
-        removeImageBtn.addEventListener("click", function(event) {
-            event.preventDefault();
-            previewImage.src = "";
-            previewContainer.style.display = "none";
-            removeImageBtn.style.display = "none";
-            imageInput.value = "";
-
-            bee.classList.add("bee-animation");
-            setTimeout(() => {
-                bee.classList.remove("bee-animation");
-            }, 500);
-        });
-    });
     </script>
 </body>
 

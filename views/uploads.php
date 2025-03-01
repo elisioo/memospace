@@ -29,58 +29,58 @@ include '../helpers/authenticated.php';
             $res = $conn->query("SELECT * FROM simple_crud");
             ?>
             <?php if ($res->num_rows > 0): ?>
-            <?php while ($row = $res->fetch_assoc()): ?>
-            <div class="card mb-3 border-warning shadow" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
+                <?php while ($row = $res->fetch_assoc()): ?>
+                    <div class="card mb-3 border-warning shadow" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
 
-                        <img src="../uploads/<?= $row['img_dir']; ?>" class="img-fluid rounded-start"
-                            style="width: 100%; height: 150px; object-fit: cover;" alt="Uploaded Image">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $row['caption']; ?></h5>
-                            <p class="card-text"><?= $row['description']; ?></p>
-                            <div class="row">
-                                <div class="col-6">
-                                    <p class="card-text">
-                                        <small class="text-body-secondary">
-                                            <?php
+                                <img src="../uploads/<?= $row['img_dir']; ?>" class="img-fluid rounded-start"
+                                    style="width: 100%; height: 150px; object-fit: cover;" alt="Uploaded Image">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $row['caption']; ?></h5>
+                                    <p class="card-text"><?= $row['description']; ?></p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p class="card-text">
+                                                <small class="text-body-secondary">
+                                                    <?php
                                                     if ($row['is_edited'] == 1) {
                                                         echo "Date Edited " . $row['time'];
                                                     } else {
                                                         echo "Date Added " . $row['time'];
                                                     }
                                                     ?>
-                                        </small>
-                                    </p>
-                                </div>
-                                <div class="col d-flex justify-content-end align-items-center gap-1"
-                                    style="height: 35px;">
-                                    <a href="update.php?upid=<?= $row['upid']; ?>" class="btn btn-sm">
-                                        <i class="fa-solid fa-pen fa-lg" style="color:rgb(255, 200, 0);"></i>
-                                    </a>
-                                    <a href="../handlers/delete_scrud_handler.php?upid=<?= $row['upid']; ?>"
-                                        class="btn btn-sm">
-                                        <i class="fa-solid fa-eraser fa-lg" style="color:rgb(255, 0, 0);"></i>
-                                    </a>
+                                                </small>
+                                            </p>
+                                        </div>
+                                        <div class="col d-flex justify-content-end align-items-center gap-1"
+                                            style="height: 35px;">
+                                            <a href="update.php?upid=<?= $row['upid']; ?>" class="btn btn-sm">
+                                                <i class="fa-solid fa-pen fa-lg" style="color:rgb(255, 200, 0);"></i>
+                                            </a>
+                                            <a href="../handlers/delete_scrud_handler.php?upid=<?= $row['upid']; ?>"
+                                                class="btn btn-sm">
+                                                <i class="fa-solid fa-eraser fa-lg" style="color:rgb(255, 0, 0);"></i>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <?php endwhile; ?>
+                <?php endwhile; ?>
             <?php else: ?>
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-8">
-                        <div class="card-body text-center">
-                            <small class="card-title">🤕 No Life Update! You need to go out... </small>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-8">
+                            <div class="card-body text-center">
+                                <small class="card-title">🤕 No Life Update! You need to go out... </small>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             <?php endif; ?>
         </div>
     </div>
